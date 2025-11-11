@@ -11,6 +11,7 @@ export default function App() {
 
     return (
         <main>
+            <h1>what people say about us</h1>
             <article className='review'>
                 <div className='img-container'>
                     <img className='person-img' src={image} alt={name} />

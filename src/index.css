@@ -257,8 +257,19 @@ ul {
 
 main {
     min-height: 100vh;
-    display: grid;
+    /* display: grid; */
     place-items: center;
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+    justify-content: center;
+}
+main h1 {
+    text-transform: lowercase;
+    color: var(--primary-600);
+    font-size: 2.2rem;
+    line-height: 2.5rem;
 }
 article {
     position: relative;
