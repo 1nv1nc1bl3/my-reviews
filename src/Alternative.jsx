@@ -9,24 +9,34 @@ export default function App() {
     const shortDesc = text.substring(0, 90);
     const finalDesc = shortDesc.charAt(0).toUpperCase() + shortDesc.slice(1);
 
+    const checkNumber = (number) => {
+        if (number > people.length - 1) {
+            return 0;
+        }
+        if (number < 0) {
+            return people.length - 1;
+        }
+        return number;
+    };
+
     const prevIndex = () => {
         setIndex((current) => {
-            const newIndex = (current - 1 + people.length) % people.length;
-            return newIndex;
+            const newIndex = current - 1;
+            return checkNumber(newIndex);
         });
     };
 
     const nextIndex = () => {
         setIndex((current) => {
-            const newIndex = (current + 1) % people.length;
-            return newIndex;
+            const newIndex = current + 1;
+            return checkNumber(newIndex);
         });
     };
 
     const randomPerson = () => {
         let randomNumber = Math.floor(Math.random() * people.length);
         if (randomNumber === index) randomNumber + 1;
-        setIndex(randomNumber);
+        setIndex(checkNumber(randomNumber));
     };
 
     return (
@@ -55,9 +65,9 @@ export default function App() {
                     className='btn btn-hipster'
                     onClick={randomPerson}
                 >
-                    Surprise Me
+                    surprise me
                 </button>
-                <p className='person-index'>{index + 1}</p>
+                {/* <p className='person-index'>{index}</p> */}
             </article>
         </main>
     );
