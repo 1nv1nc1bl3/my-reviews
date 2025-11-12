@@ -25,8 +25,9 @@ export default function App() {
 
     const randomPerson = () => {
         let randomNumber = Math.floor(Math.random() * people.length);
-        if (randomNumber === index) randomNumber + 1;
-        setIndex(randomNumber);
+        if (randomNumber === index) randomNumber = index + 1;
+        const newIndex = randomNumber % people.length;
+        setIndex(newIndex);
     };
 
     return (
